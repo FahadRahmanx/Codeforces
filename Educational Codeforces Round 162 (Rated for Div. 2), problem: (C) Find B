@@ -1,0 +1,39 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+
+def solution():
+    n,q = mulinp()
+    lst = listinp()
+    pre = [0]*(n+1)
+    ones = [0]*(n+1)
+    for i in range(n):
+        pre[i+1] = pre[i] + lst[i]
+        ones[i+1] = ones[i] + (lst[i]==1)
+    for queries in range(q):
+        l,r = mulinp()
+        val = pre[r] - pre[l-1]
+        print('YES' if (ones[r]-ones[l-1])+(r-l+1)<=val and r-l+1!=1 else 'NO')
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
