@@ -1,0 +1,50 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulint(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+n = 6 * 10 ** 6 + 1
+is_prime = [True]*(n+1) 
+is_prime[0] = is_prime[1] = False 
+primes = []
+for i in range(2, n+1): 
+    if is_prime[i]: 
+        primes.append(i)
+        for j in range(i*i, n+1, i): 
+            is_prime[j] = False 
+
+
+def solution():
+    n = intinp()
+    lst = listinp()
+    lst.sort()
+    c = tokens = k = 0 
+    for i in range(n-1,-1,-1):
+        tokens += lst[i]-primes[k]
+        if tokens >= 0:
+            c += 1
+        else:
+            break
+        k += 1
+    print(n-c) 
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
