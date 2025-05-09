@@ -1,0 +1,45 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulint(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+
+def parts(s,lst):
+    i = 0
+    while i < len(s):
+        char = s[i]
+        c = 1
+        while i+1 < len(s) and s[i+1] == char:
+            i += 1
+            c += 1
+        lst.append((char,c))
+        i+=1
+    return lst
+def solution():
+    s,s1 = inp(),inp()
+    lst,lst2 = parts(s,[]),parts(s1,[])
+    if len(lst) != len(lst2):print('nO');return
+    for i in range(len(lst)):
+        if lst[i][0] != lst2[i][0] :print('nO');return
+        elif lst[i][1] > lst2[i][1] or 2*lst[i][1] < lst2[i][1]:print('nO');return
+    print('yEs')
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
