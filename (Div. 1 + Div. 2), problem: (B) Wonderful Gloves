@@ -1,0 +1,30 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+ 
+def solution():
+    n,k = mulinp()
+    a = listinp()
+    b = listinp()
+    vals =sorted([min(a[i],b[i]) for i in range(n)])
+    print(sum(a)+sum(b)-sum(vals[:n-k+1])+1)
+for _ in range(intinp()):
+    solution()
+# solution()
