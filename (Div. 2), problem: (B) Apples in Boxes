@@ -1,0 +1,35 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+
+def solution():
+    n,k = mulinp()
+    lst = sorted(listinp())
+    if (lst[-1]-1) - lst[0] > k or (len(lst) > 1 and lst[-2] - lst[0] > k):
+        print('Jerry');return
+    else:
+        print('Tom' if sum(lst) & 1 else 'Jerry')
+
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
