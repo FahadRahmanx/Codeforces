@@ -1,0 +1,53 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+
+def solution():
+    n = intinp()
+    grid = [[0] * n for i in range(n)]
+    pos = [(-1,0),(0,-1),(1,0),(0,1)]
+    val = n*n - 1
+    r = c = n-1
+    cur = 0
+    while val >= 0:
+        grid[r][c] = val
+        nr = r+pos[cur][0]
+        nc = c + pos[cur][1]
+        if 0<=nr<n and 0<=nc<n:
+            if grid[nr][nc] != 0:
+                cur = (cur+1)%4
+                r = r+pos[cur][0]
+                c = c + pos[cur][1]
+            else:
+                r = nr
+                c = nc
+        else:
+            cur = (cur+1)%4
+            r = r+pos[cur][0]
+            c = c + pos[cur][1]
+        val -= 1
+    for i in grid:
+        print(*i)  
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
