@@ -1,0 +1,34 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulint(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+
+def solution():
+    n = intinp()
+    lst = listinp()
+    for i in range(1,n):
+        lst.append(listinp()[-1])
+    st = set(lst)
+    l = [i for i in range(1,2*n+1) if i not in st]
+    print(*l+lst)
+for _ in range(intinp()):
+    solution()
+
+# solution()
+
+    
