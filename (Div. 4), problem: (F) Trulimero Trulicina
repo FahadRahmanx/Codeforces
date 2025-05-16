@@ -1,0 +1,42 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd
+from copy import deepcopy
+ 
+def solution():
+    n,m,k = mulinp()
+    rep = (n*m)//k
+    grid = [[0]*m for i in range(n)]
+    if m%k != 0:
+        vals = list(range(1,k+1))*rep
+    else:
+        vals = list(range(1,k+1))*(m//k)
+        if rep > 1:
+            vals = vals + (list(range(2,k+1))+[1])*(m//k)
+        vals = vals*(max(1,rep//2))
+        if rep & 1 and rep > 1:
+            vals = vals + list(range(1,k+1))*(m//k)
+    for r in range(n):
+        for c in range(m):
+            grid[r][c] = vals[m*r + c]
+    for i in grid:
+        print(*i)
+for _ in range(intinp()):
+    solution()
+# solution()
