@@ -1,0 +1,42 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd,log2
+from copy import deepcopy
+ 
+def solution():
+    n = intinp()
+    print('digit',flush=True)
+    x = input()
+    print('digit',flush=True)
+    x = input()
+    print('add -8',flush=True)
+    x = input()
+    print('add -4',flush=True)
+    x = input()
+    print('add -2',flush=True)
+    x = input()
+    print('add -1',flush=True)
+    x = input()
+    print(f'mul {n}',flush=True)
+    x = input()
+    print('!',flush=True)
+    x = input()
+for _ in range(intinp()):
+    solution()
+# solution()
