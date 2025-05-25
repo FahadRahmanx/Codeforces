@@ -1,0 +1,38 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd,log2,lcm
+from copy import deepcopy
+
+def solution():
+    n = intinp()
+    lst = sorted(listinp(),reverse=True)
+    res = [0]*(2*n)
+    for i in range(n):
+        res[2*i] = lst[i]
+    for i in range(n):
+        res[2*i+1] = lst[i+n]
+    res += [0,res.pop()]
+    sm = 0
+    for i in range(1,2*n,2):
+        sm += res[i] - res[i+1]
+    res[-2] = res[0]-sm
+    print(*res)
+for _ in range(intinp()):
+    solution()
+# solution()
