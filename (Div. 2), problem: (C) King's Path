@@ -1,0 +1,54 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd,log2,lcm
+from copy import deepcopy
+
+def get_sum(n,k):
+    vl = n+k-1
+    ttl = (vl*(vl+1))//2
+    ks = ((k)*(k-1))//2
+    return ttl-ks
+
+def solution():
+    r,c,fr,fc = mulinp()
+    n = intinp()
+    can = set()
+    for i in range(n):
+        nr,a,b = mulinp()
+        for j in range(a,b+1):can.add((nr,j))
+    q = deque([(r,c,0)])
+    vis = set([(r,c)])
+    pos = [(1,1),(-1,-1),(-1,1),(1,-1),(0,1),(1,0),(0,-1),(-1,0)]
+    while q:
+        for i in range(len(q)):
+            r,c,moves = q.popleft()
+            if r == fr and c == fc:print(moves);return
+            for R,C in pos:
+                nr,nc = r+R,c+C
+                if (nr,nc) in can and (nr,nc) not in vis:
+                    vis.add((nr,nc))
+                    q.append((nr,nc,moves+1))
+    print(-1)
+
+
+        
+            
+# for _ in range(intinp()):
+#     solution()
+solution()
