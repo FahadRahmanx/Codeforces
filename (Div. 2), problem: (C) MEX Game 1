@@ -1,0 +1,40 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd,log2,lcm
+from copy import deepcopy
+
+
+def solution():
+    n = intinp()
+    lst = listinp()
+    dd = defaultdict(int)
+    for i in lst:dd[i] += 1
+    MEX = 0
+    c = 0
+    for i in range(n+1):
+        if dd[i] == 1:
+            c += 1
+            if c == 2:print(i);return
+        elif dd[i] == 0:
+            print(i);return
+        
+            
+for _ in range(intinp()):
+    solution()
+# solution()
