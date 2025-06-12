@@ -1,0 +1,37 @@
+'''********************* بسم الله الرحمن الرحيم ***********************'''
+ 
+def listinp(): #list of integers
+    return list(map(int,input().split()))
+def mulinp(): #consecutive integers
+    return map(int,input().split())
+def mulstr(): #consecutive str
+    return map(str,input().split())
+def strlist():  #str list
+    return list(input())
+def intinp():  #integer 
+    return int(input())
+def inp():   #string
+    return input()
+ 
+from collections import defaultdict,deque,Counter
+from bisect import bisect_left,bisect_right
+from heapq import heappop,heappush,heapify
+from math import ceil,isqrt,gcd,log2,lcm,prod
+from copy import deepcopy
+from functools import cmp_to_key
+
+
+def solution():
+    n = intinp()
+    row = 1
+    val = 1
+    print(2*n-1)
+    for i in range(n-1):
+        print(row,1,val)
+        print(row,val+1,n)
+        row += 1
+        val += 1
+    print(n,1,n)
+for _ in range(intinp()):
+    solution()
+# solution()
